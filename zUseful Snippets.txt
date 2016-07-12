@@ -1,0 +1,26 @@
+console.log(Object.getOwnPropertyNames(Game.rooms))
+
+var roleDefender = require('role.defender'); for ( let creep in Game.creeps ) { if ( Game.creeps[creep].memory.role == 'defender') { roleDefender.attackFlag(creep, 'Flag2'); }  }
+
+name = 'Madison' ; Game.creeps[name]
+
+var xferGoal = 1; var count = 0; for ( let name in Game.creeps ) { var creep = Game.creeps[name]; if ( count != xferGoal && creep.memory.role == 'tooFew' ) { creep.memory.role = 'tooMany'; count++; }  }
+
+for ( let name in Game.creeps ) { var creep = Game.creeps[name]; if ( creep.memory.role == undefined ) { creep
+
+//replaces n number of r role creeps in crepsList
+     var ROLES = [ 'defender', 'healer', 'miner', 'courier', 'harvester', 'upgrader', 'builder', 'repairer', 'rampartRepairer', 'wallRepairer', ]; function makeOneOfEach ( creepsList, unwantedRole, numberToMake ) {         var rolesList = ROLES;         for (i = 0; i < numberToMake; i++) {             for ( name in creepsList ) {                 creep = creepsList[name];                 if ( creep.memory.role == undefined ) {                      var newRole = rolesList.pop();                     console.log('New Role is: ' + newRole);                     creep.memory.role = newRole;                     numberToMake--;                 }             }         }                  };  makeOneOfEach( Game.creeps, 'harvester', 5 )
+
+
+// Save creeps from undefined roles
+    var ROLES = [ 'defender', 'healer', 'miner', 'courier', 'harvester', 'upgrader', 'builder', 'repairer', 'rampartRepairer', 'wallRepairer', ];
+    for ( name in Game.creeps ) {
+
+        creep = Game.creeps[name];
+        if ( creep.memory.role == undefined && ROLES.length > 0) {
+            var newRole = ROLES.pop();
+            console.log( 'New: ' + newRole);
+            creep.memory.role = newRole;
+        }
+
+    }
