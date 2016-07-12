@@ -103,7 +103,7 @@ module.exports = {
                     else {
                     //Cannot find any preferred sources to harvest from, use fallbacks
 
-                        if ( memory.colony.condition != 'invasion' ) {
+                        if ( Memory.colony.condition != 'invasion' ) {
                         //dont look for dropped energy during an attacl (the npc's drop energy as a lure)
                             //console.log('Courier cannot find a energy pickup point and will now look for dropped energy.');
                             var droppedEnergyTarget = creep.pos.findClosestByPath( FIND_DROPPED_ENERGY );
