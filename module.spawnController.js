@@ -99,7 +99,7 @@ module.exports = function(  ) {
         else if (numberOfHealers < minimumNumberOfHealers && numberOfHealers < maximumNumberOfHealers) {name = Game.spawns.Spawn1.createCustomCreep(energy, 'healer'); role = 'healer';}
 
         else if (numberOfCouriers < minimumNumberOfCouriers && numberOfCouriers < maximumNumberOfCouriers) {
-            console.log('trying to spawn a courier at 700+ energy');
+            //console.log('trying to spawn a courier at 700+ energy');
             var ratio = .4, //SOURCE_HARVESTER_RATIO['W31S17'];
                 seed = Math.random(),
                 sourceId = undefined,
@@ -167,7 +167,7 @@ module.exports = function(  ) {
         }
         else if ( numberOfMiners == 0 ) {  name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'partTimeMiner'); role = 'Part-time Miner'; }
         else if ( numberOfCouriers == 0 ) {
-            console.log( 'trying to spawn at the could not produce 700 energy creep brance');
+            //console.log( 'trying to spawn at the could not produce 700 energy creep brance');
             //name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'courier'); role = 'courier';
 
             var ratio = .85, //SOURCE_HARVESTER_RATIO['W31S17'];
