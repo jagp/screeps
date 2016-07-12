@@ -44,7 +44,7 @@ module.exports = {
                     creep.moveTo( structure );
                 }
             }
-            //try the storage units
+            //otherwise try the storage units
             else {
                 // find closest storage unit
                 structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
@@ -72,18 +72,17 @@ module.exports = {
             }
 
             if ( harvestingTarget != undefined ) {
+
                 //if creep is not within 3 range of targetSource
-                //console.log( "! creep.pos.inRangeTo( target, 3) : " + ! creep.pos.inRangeTo( target, 3) + ' ' + target);
                 if ( ! creep.pos.inRangeTo( harvestingTarget, 3)  ) {
                     //then move closer
                     creep.moveTo(harvestingTarget);
                     //console.log('Creep moving closer to target Source');
                 }
                 else {
-                    //console.log(creep);
-                    //if you are in range of the targetSource, then ignore the source and do a normal search of transferrable structures in the area
-                    //console.log('so this is false');
-                    //console.log ('in range of target source');
+                //creep is within range of targetSource
+
+                    //ignore the targetSource and do a normal search of transferrable structures in the area
                     targetContainer = creep.pos.findClosestByPath(FIND_STRUCTURES, {
                         filter: (s) =>( ( s.structureType == STRUCTURE_CONTAINER && s.store[RESOURCE_ENERGY] > 0)
                                     || ( s.structureType == STRUCTURE_STORAGE && s.store[RESOURCE_ENERGY] > 0) )
@@ -94,7 +93,6 @@ module.exports = {
                         //console.log(targetContainer.id);
                         if ( ( err = targetContainer.transfer(creep, RESOURCE_ENERGY) ) == ERR_NOT_IN_RANGE) {
                             //console.log(err);
-                            //this is going to be problematic when miners are deployed to all available spots
                             creep.moveTo(targetContainer);
                         }
                         else {//(err != OK)
@@ -102,16 +100,19 @@ module.exports = {
 
                         }
                     }
-                    else { //Cannot find any regular sources to harvest from
+                    else {
+                    //Cannot find any preferred sources to harvest from, use fallbacks
 
-                        //console.log('Courier cannot find a energy pickup point and will now look for dropped energy.');
+                        if ( memory.colony.condition != 'invasion' ) {
+                        //dont look for dropped energy during an attacl (the npc's drop energy as a lure)
+                            //console.log('Courier cannot find a energy pickup point and will now look for dropped energy.');
+                            var droppedEnergyTarget = creep.pos.findClosestByPath( FIND_DROPPED_ENERGY );
 
-                        var droppedEnergyTarget = creep.pos.findClosestByPath( FIND_DROPPED_ENERGY );
+                            if (  droppedEnergyTarget != undefined ) {
 
-                        if (  droppedEnergyTarget != undefined ) {
-
-                            if (creep.pickup(droppedEnergyTarget) == ERR_NOT_IN_RANGE) {
-                                creep.moveTo(droppedEnergyTarget);
+                                if (creep.pickup(droppedEnergyTarget) == ERR_NOT_IN_RANGE) {
+                                    creep.moveTo(droppedEnergyTarget);
+                                }
                             }
                         }
 

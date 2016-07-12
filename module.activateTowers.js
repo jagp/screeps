@@ -18,8 +18,12 @@ module.exports = function() {
     if ( Game.spawns.Spawn1.room.energyAvailable > Game.spawns.Spawn1.room.energyCapacityAvailable * .5)  {
         for (let tower of towers) {
 
+            var target = undefined;
+
             // Determine if there are hostile targets in range of the tower's pos
-            var target = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS, { filter: (c) => c.hits < c.hitsMax })
+            if ( Memory.colony.condition == 'invasion' ) {
+                target = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS, { filter: (c) => c.hits < c.hitsMax })
+            }
 
             if (target != undefined) {
                 //1st priority: If we found a hostile target, attack it

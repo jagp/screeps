@@ -33,9 +33,11 @@ module.exports = {
             for ( let name in Game.creeps ) {
                 creep = Game.creeps[name];
 
+                /*
                 if ( creep.memory.role == 'courier' || creep.memory.role == 'upgrader'  ) {
                     creep.memory.role = 'harvester';
                 }
+                */
             }
         }
 
