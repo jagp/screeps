@@ -52,7 +52,6 @@ module.exports = function() {
     for (let name in Game.rooms) {
 
         // Collect info on the room's sources
-        sources = Game.rooms[name].find(FIND_SOURCES);
         var sourceList = {};
 
         // Safely check if source is already stored in memory, and dont recalculate the list if it is
@@ -64,16 +63,19 @@ module.exports = function() {
 
             // Collect info on the source's available Harvesting spots
             for (let roomName in Game.rooms[name].find(FIND_SOURCES) ) {
-                //harvestingSpots should be an array of open square ids
 
-                var spotsList = {};
-
-
-
-
-                sourceList[ sources[roomName].id ] = { harvestingSpots : spotsList };
+                sourceList[ sources[roomName].id ] = { harvestingSpots : [] };
             }
         }
+
+        //harvestingSpots should be an array of open square ids
+
+        var spotsList = {};
+
+        // Safely check if source is already stored in memory, and dont recalculate the list if it is
+        if (  Memory.colony.rooms[name].sources[hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
+
+
 
         roomList[name] = { sources : sourceList };
 
