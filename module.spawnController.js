@@ -93,7 +93,7 @@ module.exports = function(  ) {
 
     if ( Game.spawns.Spawn1.canCreateCreep( [WORK, WORK, WORK, WORK, WORK, WORK, WORK] ) == OK ) {
         //console.log('Inside spawnController main loop');
-        // if not enough of role n, create more (preference list)
+
         if (numberOfMiners < minimumNumberOfMiners) {  name = Game.spawns.Spawn1.createCustomCreep(energy, 'fullTimeMiner'); role = 'miner'; }
         else if (numberOfDefenders < minimumNumberOfDefenders && numberOfDefenders < maximumNumberOfDefenders) {name = Game.spawns.Spawn1.createCustomCreep(energy, 'defender'); role = 'defender';}
         else if (numberOfHealers < minimumNumberOfHealers && numberOfHealers < maximumNumberOfHealers) {name = Game.spawns.Spawn1.createCustomCreep(energy, 'healer'); role = 'healer';}
@@ -128,14 +128,6 @@ module.exports = function(  ) {
                 console.log( /*'Courier spawned with targetSource = ' + sourceId + 'as the random gen was: ' + seed + ' and the ratio breakpoint is: ' + SOURCE_HARVESTER_RATIO['W31S17'] */ );
             }
 
-            /*
-            // if spawning failed and we have no couriers left, make a standard harvester
-            if (name == ERR_NOT_ENOUGH_ENERGY && numberOfCouriers == 0) {
-                // spawn one with what is available
-                name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'courier', sourceId);
-                    role = 'courier';
-            }
-            */
         }
 
         /*-- Minimum Creep Spawn checks-- */
@@ -170,7 +162,7 @@ module.exports = function(  ) {
             //console.log( 'trying to spawn at the could not produce 700 energy creep brance');
             //name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'courier'); role = 'courier';
 
-            var ratio = .85, //SOURCE_HARVESTER_RATIO['W31S17'];
+            var ratio = 1, //SOURCE_HARVESTER_RATIO['W31S17'];
                 seed = Math.random(),
                 sourceId = undefined,
                 sourceIdList = [];
@@ -200,22 +192,11 @@ module.exports = function(  ) {
 
         }
 
-        /*else {
-            console.log('Inside couriers min/max test');
-            // just spawn something in the event of utter spawning failure
-            name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, DEFAULT_SPAWN_ROLE, '576a9bde57110ab231d8818b' );
-            role = 'Default Spawn';
-            console.log(name);
-        }*/
-
     }
 
     // print name to console if spawning was a success
     if ( (name != undefined) && !(name < 0)) {
-        //baby = Game.creeps[name];
-        //console.log("Spawned new creep: " + name + "[" + Game.creeps[name].memory.role + "]");
-        //name.announce(name.memory.role );
-        var babyName = Game.spawns.Spawn1.spawning;
+
         console.log("Spawned new creep: " + name + ' (' + role + ')' );
     }
 
