@@ -20,8 +20,6 @@ var roleRampartRepairer = require('role.rampartRepairer');
 var roleDefender = require('role.defender');
 var roleHealer = require('role.healer');
 
-var census = require('module.censusTaker');
-
 module.exports = function() {
 
     // for every creep name in Game.creeps, cause them to perform their roles
