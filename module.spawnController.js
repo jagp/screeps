@@ -33,8 +33,8 @@ var minimumNumberOfRepairers = 1;
 var maximumNumberOfRepairers = 2;
 var minimumNumberOfWallRepairers = 1;
 var maximumNumberOfWallRepairers = 2;
-var minimumNumberOfRampartRepairers = 1;
-var maximumNumberOfRampartRepairers = 2;
+var minimumNumberOfRampartRepairers = 0;
+var maximumNumberOfRampartRepairers = 0;
 
 if ( Memory.colony.condition === 'invasion' ) {
     console.log( 'Invasion? ' + Memory.colony.condition  )
