@@ -57,6 +57,7 @@ module.exports = function() {
 
         // Safely check if source is already stored in memory, and dont recalculate the list if it is
         if (  Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
+            console.log ( 'using sourceList from memory for MemoryModel');
             sourceList = Memory.colony.rooms[name].sources;
         }
         else {
