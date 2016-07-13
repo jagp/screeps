@@ -54,7 +54,7 @@ module.exports = function() {
             else if ( bodyTypeName == 'upgrader' ) {
 
                 //Upgraders:
-                console.log('upgrader body constructor');
+
                 roleName = 'upgrader';
                 var numberOfParts = Math.floor(energy / 150);
                 for (let i = 0; i < numberOfParts; i++) {
@@ -99,7 +99,7 @@ module.exports = function() {
             if ( source ) {
                 return this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
             }
-            else {
+            else {console.log('creep spawner');
                 return this.createCreep(body, undefined, { role: roleName, working: false });
             }
     };
