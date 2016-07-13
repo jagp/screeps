@@ -57,7 +57,7 @@ module.exports = function() {
                 console.log( 'inside body part constuctor, energy =' + energy);
                 roleName = 'upgrader';
                 var numberOfParts = Math.floor(energy / 150);
-                if (numberOfParts > 7) { numberOfParts = 7; }
+                if (numberOfParts > 7) { numberOfParts = 5; }
                 for (let i = 0; i < numberOfParts; i++) {
 
                     body.push(WORK); // 50
@@ -104,7 +104,7 @@ module.exports = function() {
                 console.log( 'body:' + body);
                 var err;
                 err = this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
-                if ( err < 0) { console.log( 'Creep-building filure in prototype.spawn, error: ' + err + ' role:' + roleName + ' targetSource=' + source  ); }
+                if ( err < 0) { console.log( 'Creep-building failure in prototype.spawn, error: ' + err + ' role:' + roleName + ' targetSource=' + source  ); }
                 return err;
             }
             else {
