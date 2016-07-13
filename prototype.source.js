@@ -56,7 +56,7 @@ console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
                         else if ( blocked == undefined ) {
 
                             emptyRooms.push( { x: candidate.x, y: candidate.y } );
-                            console.log( 'blocked=' + blocked + ' so this point is being added to the list: ' emptyRooms );
+                            console.log( 'blocked=' + blocked + ' so this point is being added to the list: ' + emptyRooms );
                             //var sourceId = Memory.colony.rooms[HOME].sources[SOURCEONE];
                             //var sourceId = SOURCEONE;
                             //console.log(sourceId);
