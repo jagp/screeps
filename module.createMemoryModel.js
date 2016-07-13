@@ -67,15 +67,15 @@ module.exports = function() {
                 console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
                 if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
                     console.log('Harvesting Spots found clause');
-                    sourceObj = Game.getObjectById( source );
-                    harvestingSpots.push( sourceObj.registerHarvestingSpots() );
+                    harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots();
 
                 }
                 else {
                     console.log('test');
                     // Have each spawn find its own available harvesting spots
                     //harvestingSpots.push( source.registerHarvestingSpots( ) );
-
+                    sourceObj = Game.getObjectById( source );
+                    harvestingSpots.push( sourceObj.registerHarvestingSpots() );
                 }
 
             }
