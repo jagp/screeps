@@ -91,7 +91,7 @@ module.exports = function() {
 
             sourceList[sourceId].harvestingSpots = harvestingSpots;
 
-            sourceList = { '576a9bde57110ab231d8818d' : 'harvestingSpots', '576a9bde57110ab231d8818b': 'harvestingSpots'  };
+            //sourceList = { '576a9bde57110ab231d8818d' : 'harvestingSpots', '576a9bde57110ab231d8818b': 'harvestingSpots'  };
 
         }
 
