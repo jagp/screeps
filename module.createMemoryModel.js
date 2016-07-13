@@ -51,56 +51,47 @@ module.exports = function() {
     /* Collect info on the rooms */
     var roomList = { };
 
+    //Form roomList
     for (let name in Game.rooms) {
+        var room = Game.rooms[name];
 
         // Collect info on the room's sources
         var sourceList = {};
-
-        // Safely check if source is already stored in memory, and dont recalculate the list if it is
-        if (  false && Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
+        // Safely check if source list is already stored in memory, and dont recalculate the list if it is
+        if ( Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
             sourceList = Memory.colony.rooms[name].sources;
-
-            //Now check if each source has the available spots in memory
-            var harvestingSpots = [];
-            for (let source in sourceList) {
-                //console.log('test');
-                //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
-                if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
-                    //console.log('Harvesting Spots loaded from memory');
-                    harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
-
-                }
-                else {
-                //HarvestingSpots list has not yet been created
-
-                    console.log('Creating harvestingSpots list for new source');
-
-                    // Have each spawn find its own available harvesting spots
-                    //harvestingSpots.push( source.registerHarvestingSpots( ) );
-                    sourceObj = Game.getObjectById( source );
-                    //console.log( sourceObj.registerHarvestingSpots() );
-                    harvestingSpots = sourceObj.registerHarvestingSpots();
-                }
-
-                sourceList[source].harvestingSpots = harvestingSpots;
-
-                sourceList = { '576a9bde57110ab231d8818d' : 'harvestingSpots', '576a9bde57110ab231d8818b': 'harvestingSpots'  };
-
-            }
-
-
         }
         else {
-
-            // Collect info on the source's available Harvesting spots and add it to the model
-
-
-                var room = Game.rooms[name];
+            // Form sourceList
                 var sourcesFound = room.find(FIND_SOURCES);
-                console.log( typeof(sourcesFound));
                 sourcesFound.forEach( function(source) { sourceList[source.id] = {  } } );
-                //sourceList = { '576a9bde57110ab231d8818d' : {'harvestingSpots' : {} }, '576a9bde57110ab231d8818b': {'harvestingSpots' : {} } };
-                //sourceList = sourcesFound;
+        }
+
+        //Now check if each source has the available spots in memory
+        var harvestingSpots = [];
+        for (let sourceId in sourceList) {
+            var source = Game.getObjectById( sourceList[sourceId] );
+
+            //console.log('test');
+            //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
+            if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
+                harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
+            }
+            else {
+            //Form harvestingSpots list
+                //console.log('Creating harvestingSpots list for new source');
+
+                // Have each spawn find its own available harvesting spots
+                //harvestingSpots.push( source.registerHarvestingSpots( ) );
+                sourceObj = Game.getObjectById( source );
+                //console.log( sourceObj.registerHarvestingSpots() );
+                harvestingSpots = sourceObj.registerHarvestingSpots();
+            }
+
+            sourceList[source].harvestingSpots = harvestingSpots;
+
+            sourceList = { '576a9bde57110ab231d8818d' : 'harvestingSpots', '576a9bde57110ab231d8818b': 'harvestingSpots'  };
+
         }
 
         //harvestingSpots should be an array of open square ids
