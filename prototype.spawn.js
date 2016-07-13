@@ -56,7 +56,8 @@ module.exports = function() {
                 //Upgraders:
                 console.log( 'inside body part constuctor, energy =' + energy);
                 roleName = 'upgrader';
-                var numberOfParts = Math.floor(energy / 150, 7);
+                var numberOfParts = Math.floor(energy / 150);
+                if (numberOfParts > 7) { numberOfParts = 7; }
                 for (let i = 0; i < numberOfParts; i++) {
 
                     body.push(WORK); // 50
