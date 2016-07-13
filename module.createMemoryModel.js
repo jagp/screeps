@@ -84,7 +84,7 @@ module.exports = function() {
 
                 // Have each spawn find its own available harvesting spots
                 //harvestingSpots.push( source.registerHarvestingSpots( ) );
-                sourceObj = Game.getObjectById( source );
+                sourceObj = Game.getObjectById( sourceId );
                 //console.log( sourceObj.registerHarvestingSpots() );
                 harvestingSpots = sourceObj.registerHarvestingSpots();
             }
