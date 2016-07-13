@@ -96,8 +96,10 @@ module.exports = function() {
             }
 
             // create creep with the created body and the given role
-            if ( source ) {console.log('creep spawner');
-                return this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
+            if ( source ) {
+                var err = this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
+                console.log(err);
+                return err;
             }
             else {
                 return this.createCreep(body, undefined, { role: roleName, working: false });
