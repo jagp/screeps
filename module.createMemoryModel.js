@@ -70,8 +70,8 @@ module.exports = function() {
         //Now check if each source has the available spots in memory
         var harvestingSpots = [];
         for (let sourceId in sourceList) {
-            console.log(sourceId);
-            var source = Game.getObjectById( sourceList.sourceId );
+            //console.log(sourceId);
+            var source = Game.getObjectById( sourceId );
 
             //console.log('test');
             //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
