@@ -63,7 +63,7 @@ module.exports = function() {
 
         for (let name in Game.rooms) {
             var room = Game.rooms[name];
-            Memory.colony.rooms[name] = { sources: {} } ;
+            Memory.colony.rooms[name] = { zzz: {} } ;
 
 
             // Collect info on the room's sources
