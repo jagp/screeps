@@ -51,10 +51,12 @@ console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
                         if ( (obj.type == 'terrain' && obj.terrain == 'wall' )
                             || (obj.type == 'structure' && obj.structure == 'source') ) {
                             blocked = true;
+                            console.log( 'not adding ^ this coord to the list.' );
                         }
                         else if ( blocked == undefined ) {
-                            //if no objects matched blockingTypes
+
                             emptyRooms.push( { x: candidate.x, y: candidate.y } );
+                            console.log( 'blocked=' + blocked + ' so this point is being added to the list: ' );
                             //var sourceId = Memory.colony.rooms[HOME].sources[SOURCEONE];
                             //var sourceId = SOURCEONE;
                             //console.log(sourceId);
