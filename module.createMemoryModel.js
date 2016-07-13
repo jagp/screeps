@@ -61,7 +61,7 @@ module.exports = function() {
         }
         else {
         //form roomsList
-            Memory.colony.rooms = Game.rooms;
+            Memory.colony.rooms = {hi: 'hi'};
         }
         // Collect info on the room's sources
         var sourceList = {};
