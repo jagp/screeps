@@ -61,10 +61,10 @@ module.exports = function() {
 
         for (let name in Game.rooms) {
             var room = Game.rooms[name];
-            roomsList[name] = { } ;
+            Memory.colony.roomsList[name] = { } ;
         }
     }
-    Memory.colony.rooms = roomsList;
+    //Memory.colony.rooms = roomsList;
 
 
     var sourceList = {};
