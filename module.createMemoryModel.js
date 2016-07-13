@@ -63,7 +63,7 @@ module.exports = function() {
             var room = Game.rooms[name];
             roomsList = { name : {} } ;
 
-            };
+
         }
 
     }
