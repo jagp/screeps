@@ -61,9 +61,9 @@ module.exports = function() {
             //Now check if each source has the available spots in memory
             var harvestingSpots = {};
             for (let source in sourceList) {
-                console.log('test');
-                console.log(Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots'));
-                if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') != {} ) {
+                //console.log('test');
+                //console.log(Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots'));
+                if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots != {} ) {
                     harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
                 }
                 else {
