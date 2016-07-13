@@ -8,8 +8,10 @@ module.exports = {
             //console.log( "Transferring energy with response: " + creep.transfer( Game.getObjectById('5781e7b07cc9b30b2f70836c'), RESOURCE_ENERGY) );
             creep.transfer( Game.getObjectById('5781e7b07cc9b30b2f70836c'), RESOURCE_ENERGY);
             //creep.transfer( Game.getObjectById('5782b8f5b692eba23515cc40'), RESOURCE_ENERGY);
-            creep.transfer( Game.getObjectById('578457d8b392bc4a46422e2a'), RESOURCE_ENERGY);
-            creep.transfer( Game.getObjectById('57846dfa803e9ace398a3619'), RESOURCE_ENERGY);
+            creep.transfer( Game.getObjectById('5785fc2d7f3097507366979b'), RESOURCE_ENERGY);
+            creep.transfer( Game.getObjectById('5785f7f8fad8f4b36536acf7'), RESOURCE_ENERGY);
+            creep.transfer( Game.getObjectById('5785cb205512557f2dba6917'), RESOURCE_ENERGY);
+
 
             var targetPos = undefined;
             var targetStorageUnit = creep.room.storage;
