@@ -55,7 +55,7 @@ module.exports = function() {
     for (let name in Game.rooms) {
         var room = Game.rooms[name];
 
-        if ( Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty(rooms) != {} ) {
+        if ( Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty('rooms') != {} ) {
 
             roomsList = Memory.colony.rooms;
         }
