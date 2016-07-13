@@ -99,7 +99,7 @@ module.exports = function() {
                 sourceList[sourceId].harvestingSpots = harvestingSpots;
 
                 //sourceList = { '576a9bde57110ab231d8818d' : 'harvestingSpots', '576a9bde57110ab231d8818b': 'harvestingSpots'  };
-
+            }
         }
 
         //harvestingSpots should be an array of open square ids
@@ -109,7 +109,7 @@ module.exports = function() {
             sources : sourceList
         };
 
-    }//roomsList is now formed
+    } //roomsList is now formed
     Memory.colony.rooms = roomsList;
 
 
