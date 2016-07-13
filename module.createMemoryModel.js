@@ -79,7 +79,7 @@ module.exports = function() {
                     //harvestingSpots.push( source.registerHarvestingSpots( ) );
                     sourceObj = Game.getObjectById( source );
                     //console.log( sourceObj.registerHarvestingSpots() );
-                    harvestingSpot = sourceObj.registerHarvestingSpots();
+                    harvestingSpots = sourceObj.registerHarvestingSpots();
                 }
 
                 sourceList[source].harvestingSpots = harvestingSpots;
