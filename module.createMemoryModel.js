@@ -65,7 +65,7 @@ module.exports = function() {
             for (let source in sourceList) {
                 //console.log('test');
                 //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
-                if (  false && Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
+                if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
                     //console.log('Harvesting Spots found clause');
                     harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
 
