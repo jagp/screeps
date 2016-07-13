@@ -43,10 +43,10 @@ module.exports = function() {
                     //Store the list of objects in the candidate
                     candidateObjects = Game.rooms[this.room.name].lookAt(candidate.x, candidate.y);
 
-
+                    var blocked = undefined;
                     candidateObjects.forEach( function( obj ) {
                         if ( DEBUG ) { console.log( 'At : [' + candidate.x + ', ' + candidate.y + '] is a: ' + Object.getPrototypeOf( obj) ); }
-                        var blocked = undefined;
+
 
                         if ( (obj.type == 'terrain' && obj.terrain == 'wall' )
                             || (obj.type == 'structure' && obj.structure == 'source') ) {
