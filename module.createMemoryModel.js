@@ -109,7 +109,7 @@ module.exports = function() {
                 energyAvailable : Game.rooms[name].energyAvailable,
                 sources : sourceList
             };
-            console.log('Rooms list: ' + roomsList);
+            //console.log('Rooms list: ' + roomsList);
 
 
         }
