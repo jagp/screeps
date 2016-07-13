@@ -42,9 +42,11 @@ module.exports = function() {
 
                     //Store the list of objects in the candidate
                     candidateObjects = Game.rooms[this.room.name].lookAt(candidate.x, candidate.y);
-                    if ( DEBUG ) { console.log( 'At : [' + candidate.x + ', ' + candidate.y + '] is: '); }
+
 
                     candidateObjects.forEach( function( obj ) {
+                        if ( DEBUG ) { console.log( 'At : [' + candidate.x + ', ' + candidate.y + '] is a: ' + Object.getPrototypeOf( obj); }
+
                         if ( (obj.type == 'terrain' && obj.terrain == 'wall' )
                             || (obj.type == 'structure' && obj.structure == 'source') ) {
 
@@ -72,9 +74,9 @@ module.exports = function() {
             // assign the list to the internal property
 
             // update the model in memory also
-        Memory.colony.rooms[this.room.name].sources[this.id]
-
-        emptyRooms = [ { x: 19, y: 45}, { x:20, y:45}, { x:21, y:45} ];
+        //Memory.colony.rooms[this.room.name].sources[this.id]
+        console.log( emptyRooms );
+        //emptyRooms = [ { x: 19, y: 45}, { x:20, y:45}, { x:21, y:45} ];
         return emptyRooms;
     };
     Source.prototype.getHarvestingSpots =

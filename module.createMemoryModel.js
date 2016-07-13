@@ -66,7 +66,7 @@ module.exports = function() {
                 //console.log('test');
                 //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
                 if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
-                    console.log('Harvesting Spots loaded from memory');
+                    //console.log('Harvesting Spots loaded from memory');
                     harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
 
                 }
@@ -78,7 +78,7 @@ module.exports = function() {
                     // Have each spawn find its own available harvesting spots
                     //harvestingSpots.push( source.registerHarvestingSpots( ) );
                     sourceObj = Game.getObjectById( source );
-                    console.log( sourceObj.registerHarvestingSpots() );
+                    //console.log( sourceObj.registerHarvestingSpots() );
                     harvestingSpot = sourceObj.registerHarvestingSpots();
                 }
 
