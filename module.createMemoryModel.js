@@ -61,7 +61,7 @@ module.exports = function() {
 
         for (let name in Game.rooms) {
             var room = Game.rooms[name];
-            roomsList = { name : {} } ;
+            roomsList[name] = { } ;
 
 
         }
