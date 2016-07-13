@@ -51,7 +51,7 @@ module.exports = function() {
     /* Collect info on the rooms */
 
     var roomsList = { };
-    if ( Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty('rooms') != {} ) {
+    if ( false && Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty('rooms') != {} ) {
     //if roomsList is in memory, use it
         roomsList = Memory.colony.rooms;
     }
