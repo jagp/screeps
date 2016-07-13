@@ -54,7 +54,7 @@ module.exports = function() {
             else if ( bodyTypeName == 'upgrader' ) {
 
                 //Upgraders:
-
+                console.log( 'inside body part constuctor');
                 roleName = 'upgrader';
                 var numberOfParts = Math.floor(energy / 150);
                 for (let i = 0; i < numberOfParts; i++) {
