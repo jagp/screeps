@@ -64,7 +64,9 @@ module.exports = function() {
                 //console.log('test');
                 //console.log(Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots'));
                 if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots != {} ) {
+                    console.log('Harvesting Spots found clause');
                     harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
+
                 }
                 else {
                     console.log('test');
