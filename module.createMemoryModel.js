@@ -58,6 +58,7 @@ module.exports = function() {
         //roomsList = Game.rooms; //{ 'W31S17' : {} }
     }
     else {
+        Memory.colony.rooms = {};
 
         for (let name in Game.rooms) {
             var room = Game.rooms[name];
