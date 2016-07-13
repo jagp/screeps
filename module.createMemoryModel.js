@@ -55,7 +55,7 @@ module.exports = function() {
     //if roomsList is in memory, use it
         //roomsList = Memory.colony.rooms;
         //roomsList = Memory.colony.rooms;
-        roomsList = Game.rooms; //{ 'W31S17' : {} }
+        //roomsList = Game.rooms; //{ 'W31S17' : {} }
     }
     else {
     // otherwise, form roomsList
