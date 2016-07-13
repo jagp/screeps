@@ -50,7 +50,7 @@ module.exports = function() {
     /* -------------------- ROOMS ---------------------- */
     /* Collect info on the rooms */
 
-    var roomsList = { };
+
     if (false && Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty('rooms') != {} ) {
     //if roomsList is in memory, use it
         //roomsList = Memory.colony.rooms;
@@ -58,6 +58,7 @@ module.exports = function() {
         //roomsList = Game.rooms; //{ 'W31S17' : {} }
     }
     else {
+        //Build the rooms property
         Memory.colony.rooms = {};
 
         for (let name in Game.rooms) {
@@ -65,6 +66,7 @@ module.exports = function() {
             Memory.colony.rooms[name] = { sources: {} } ;
 
 
+            // Collect info on the room's sources
             var sourceList = {};
             // Safely check if source list is already stored in memory, and dont recalculate the list if it is
             if ( Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
@@ -72,13 +74,42 @@ module.exports = function() {
             }
             else {
                 // Form sourceList
-                var sourcesFound = room.find(FIND_SOURCES);
-                sourcesFound.forEach(
-                    function(source) {
-                        Memory.colony.rooms[name].sources[source.id ] = { };
-                    }
-                );
+                    var sourcesFound = room.find(FIND_SOURCES);
+                    sourcesFound.forEach( function(source) { sourceList[source.id] = {  } } );
             }
+
+            //Now check if each source has the available spots in memory
+            var harvestingSpots = [];
+            for (let sourceId in sourceList) {
+                //console.log(sourceId);
+                var source = Game.getObjectById( sourceId );
+
+                //get harvestingSpots
+                if (  source.hasOwnProperty('harvestingSpots') && source.harvestingSpots.length != 0 ) {
+                    //from memory
+                    harvestingSpots = source.harvestingSpots;
+                }
+                else {
+                    //or, form harvestingSpots list
+
+                    // Have each spawn find its own available harvesting spots
+                    sourceObj = Game.getObjectById( sourceId );
+                    harvestingSpots = sourceObj.getHarvestingSpots();
+                }
+
+                sourceList[sourceId].harvestingSpots = harvestingSpots;
+
+                //sourceList = { '576a9bde57110ab231d8818d' : 'harvestingSpots', '576a9bde57110ab231d8818b': 'harvestingSpots'  };
+            }
+
+
+            //harvestingSpots should be an array of open square ids
+
+            roomsList[name] = {
+                energyAvailable : Game.rooms[name].energyAvailable,
+                sources : sourceList
+            };
+            console.log('Rooms list: ' + roomsList);
 
 
         }
