@@ -99,7 +99,7 @@ module.exports = function() {
             if ( source ) {
                 console.log( 'inside source clause');
                 var err = this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
-                if ( err < 0 && err != zERR_NOT_ENOUGH_ENERGY) { console.log( 'Creep-building filure in prototype.spawn: ' + err); }
+                if ( err < 0) { console.log( 'Creep-building filure in prototype.spawn: ' + err); }
                 return err;
             }
             else {
