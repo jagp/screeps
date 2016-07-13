@@ -54,7 +54,7 @@ module.exports = function() {
             else if ( bodyTypeName == 'upgrader' ) {
 
                 //Upgraders:
-                console.log( 'inside body part constuctor, energy =' + energy);
+                //console.log( 'inside body part constuctor, energy =' + energy);
                 roleName = 'upgrader';
                 //var numberOfParts = Math.floor(energy / 200);
                 //if (numberOfParts > 6) { numberOfParts = 6; }
@@ -100,12 +100,9 @@ module.exports = function() {
 
             // create creep with the created body and the given role
             if ( source ) {
-                console.log( 'inside source clause');
-                console.log( 'body:' + body);
-                var err;
-                err = this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
-                if ( err < 0) { console.log( 'Creep-building failure in prototype.spawn, error: ' + err + ' role:' + roleName + ' targetSource=' + source  ); }
-                return err;
+                var createCreepResponse = this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
+                if ( createCreepResponse < 0) { console.log( 'Creep-building failure in prototype.spawn, error: ' + createCreepResponse + ' role:' + roleName + ' targetSource=' + source  ); }
+                return createCreepResponse;
             }
             else {
                 console.log( 'inside no-source clause');
