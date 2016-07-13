@@ -62,24 +62,29 @@ module.exports = function() {
         for (let name in Game.rooms) {
             var room = Game.rooms[name];
             Memory.colony.rooms[name] = { } ;
+
+
+            var sourceList = {};
+            // Safely check if source list is already stored in memory, and dont recalculate the list if it is
+            if ( Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
+                sourceList = Memory.colony.rooms[name].sources;
+            }
+            else {
+                // Form sourceList
+                var sourcesFound = room.find(FIND_SOURCES);
+                sourcesFound.forEach(
+                    function(source) {
+                        Memory.colony.rooms[ source.id ] = { };
+                    }
+                );
+            }
+
+
         }
     }
 
 
-    var sourceList = {};
-    // Safely check if source list is already stored in memory, and dont recalculate the list if it is
-    if ( Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
-        sourceList = Memory.colony.rooms[name].sources;
-    }
-    else {
-        // Form sourceList
-        var sourcesFound = room.find(FIND_SOURCES);
-        sourcesFound.forEach(
-            function(source) {
-                Memory.colony.rooms[ source.id ] = { };
-            }
-        );
-    }
+
 
     /*
     else {
