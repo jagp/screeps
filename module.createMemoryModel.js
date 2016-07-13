@@ -100,14 +100,15 @@ module.exports = function() {
 
                 //sourceList = { '576a9bde57110ab231d8818d' : 'harvestingSpots', '576a9bde57110ab231d8818b': 'harvestingSpots'  };
             }
+
+
+            //harvestingSpots should be an array of open square ids
+
+            roomsList[name] = {
+                energyAvailable : Game.rooms[name].energyAvailable,
+                sources : sourceList
+            };
         }
-
-        //harvestingSpots should be an array of open square ids
-
-        roomsList[name] = {
-            energyAvailable : Game.rooms[name].energyAvailable,
-            sources : sourceList
-        };
 
     } //roomsList is now formed
     Memory.colony.rooms = roomsList;
