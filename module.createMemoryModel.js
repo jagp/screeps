@@ -94,7 +94,7 @@ module.exports = function() {
 
                 var room = Game.rooms[name];
                 for ( let source in room.find(FIND_SOURCES) ) {
-                    sourceList.push( source.id );
+                    sourceList[id] =  source.id;
 
                 };
                 //sourceList.push( [roomName].id ] )= { };
