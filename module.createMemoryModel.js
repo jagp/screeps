@@ -65,7 +65,7 @@ module.exports = function() {
             for (let source in sourceList) {
                 //console.log('test');
                 //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
-                if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
+                if (  false && Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
                     //console.log('Harvesting Spots found clause');
                     harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
 
@@ -79,8 +79,12 @@ module.exports = function() {
                     //harvestingSpots.push( source.registerHarvestingSpots( ) );
                     sourceObj = Game.getObjectById( source );
                     console.log( sourceObj.registerHarvestingSpots() );
-                    sourceList[ source ].harvestingSpots = sourceObj.registerHarvestingSpots();
+                    harvestingSpot = sourceObj.registerHarvestingSpots();
                 }
+
+                sourceList[source].harvestingSpot = harvestingSpot;
+
+
 
 
 
