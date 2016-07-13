@@ -28,8 +28,7 @@ module.exports = function() {
 
             candidate.x = this.pos.x;
             candidate.y = this.pos.y;
-            //var candidate = clone (this.pos );
-            //var blockingTypes = OBSTACLE_OBJECT_TYPES;
+
             const MAP_GENERATED_OBJECT_OBSTACLE_TYPES =  [ {"terrain" : "wall"}, { "structure" : "source" } ]
             var blockingTypes = MAP_GENERATED_OBJECT_OBSTACLE_TYPES;
 
@@ -48,8 +47,7 @@ module.exports = function() {
                     var blocked = undefined;
                     candidateObjects.forEach( function( obj ) {
                         if ( DEBUG ) { console.log( 'At : [' + candidate.x + ', ' + candidate.y + '] is a: ' + Object.getPrototypeOf( obj) ); }
-//structure=source returns undefined
-console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
+
                         if ( (obj.type == 'terrain' && obj.terrain == 'wall' )
                             || (obj.type == 'source') ) {
                             blocked = true;
