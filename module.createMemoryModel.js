@@ -99,7 +99,7 @@ module.exports = function() {
                 //sourceList[source.id] = room.find(FIND_SOURCES);
                 //sourceList.push( [roomName].id ] )= { };
                 //
-                sourceList = { '576a9bde57110ab231d8818d' : 'harvestingSpots', '576a9bde57110ab231d8818b': 'harvestingSpots'  };
+                sourceList = { '576a9bde57110ab231d8818d' : {'harvestingSpots' : {} }, '576a9bde57110ab231d8818b': {'harvestingSpots' : {}  };
 
         }
 
