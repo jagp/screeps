@@ -67,6 +67,7 @@ module.exports = function() {
                     harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
                 }
                 else {
+                    console.log('test');
                     // Have each spawn find its own available harvesting spots
                     harvestingSpots.push( source.registerHarvestingSpots() );
                 }
