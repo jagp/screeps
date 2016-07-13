@@ -104,7 +104,7 @@ module.exports = function() {
                 console.log( 'body:' + body);
                 var err;
                 err = this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
-                if ( err < 0) { console.log( 'Creep-building filure in prototype.spawn, error: ' + err + ' role:' + roleName + ' targetSource=' + targetSource  ); }
+                if ( err < 0) { console.log( 'Creep-building filure in prototype.spawn, error: ' + err + ' role:' + roleName + ' targetSource=' + source  ); }
                 return err;
             }
             else {
