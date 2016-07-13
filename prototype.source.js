@@ -56,7 +56,7 @@ console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
                             //if no objects matched blockingTypes
                             emptyRooms.push( { x: candidate.x, y: candidate.y } );
                             //var sourceId = Memory.colony.rooms[HOME].sources[SOURCEONE];
-                            var sourceId = SOURCEONE;
+                            //var sourceId = SOURCEONE;
                             //console.log(sourceId);
                         }
                         else {
