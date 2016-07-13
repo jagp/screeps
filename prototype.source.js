@@ -46,7 +46,7 @@ module.exports = function() {
                     var blocked = undefined;
                     candidateObjects.forEach( function( obj ) {
                         if ( DEBUG ) { console.log( 'At : [' + candidate.x + ', ' + candidate.y + '] is a: ' + Object.getPrototypeOf( obj) ); }
-
+//structure=source returns undefined
 console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
                         if ( (obj.type == 'terrain' && obj.terrain == 'wall' )
                             || (obj.type == 'structure' && obj.structure == 'source') ) {

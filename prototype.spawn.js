@@ -66,6 +66,7 @@ module.exports = function() {
 
                 }
                 //body = [ WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE ];
+                //console.log( 'inside body part constuctor, energy =' + energy);
 
             }
             else if ( bodyTypeName == 'courier' ) {
@@ -103,7 +104,7 @@ module.exports = function() {
                 console.log( 'body:' + body);
                 var err;
                 err = this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
-                if ( err < 0) { console.log( 'Creep-building filure in prototype.spawn: ' + err); }
+                if ( err < 0) { console.log( 'Creep-building filure in prototype.spawn, error: ' + err + ' role:' + roleName + ' targetSource=' + targetSource  ); }
                 return err;
             }
             else {
