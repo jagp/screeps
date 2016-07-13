@@ -74,7 +74,7 @@ module.exports = function() {
                     console.log('test');
                     // Have each spawn find its own available harvesting spots
                     //harvestingSpots.push( source.registerHarvestingSpots( ) );
-                    harvestingSpots.push( Source.registerHarvestingSpots( source ) );
+                    Game.sources.source.registerHarvestingSpots();
                 }
 
             }
