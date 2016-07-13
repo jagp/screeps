@@ -100,7 +100,7 @@ module.exports = function() {
                 console.log( typeof(sourcesFound));
                 //sourcesFound.foreach( function(source) { sourceList[source] = {  } } );
                 //sourceList = { '576a9bde57110ab231d8818d' : {'harvestingSpots' : {} }, '576a9bde57110ab231d8818b': {'harvestingSpots' : {} } };
-                //ourceList = sourcesFound;
+                sourceList = sourcesFound;
         }
 
         //harvestingSpots should be an array of open square ids
