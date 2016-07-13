@@ -105,7 +105,7 @@ module.exports = function() {
 
             //harvestingSpots should be an array of open square ids
 
-            roomsList[name] = {
+            Memory.colony.rooms[name] = {
                 energyAvailable : Game.rooms[name].energyAvailable,
                 sources : sourceList
             };
