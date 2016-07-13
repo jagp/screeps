@@ -45,7 +45,7 @@ module.exports = function() {
 
 
                     candidateObjects.forEach( function( obj ) {
-                        if ( DEBUG ) { console.log( 'At : [' + candidate.x + ', ' + candidate.y + '] is a: ' + Object.getPrototypeOf( obj); }
+                        if ( DEBUG ) { console.log( 'At : [' + candidate.x + ', ' + candidate.y + '] is a: ' + Object.getPrototypeOf( obj) ); }
 
                         if ( (obj.type == 'terrain' && obj.terrain == 'wall' )
                             || (obj.type == 'structure' && obj.structure == 'source') ) {
