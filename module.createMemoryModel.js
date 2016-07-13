@@ -66,14 +66,14 @@ module.exports = function() {
                 //console.log('test');
                 //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
                 if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
-                    //console.log('Harvesting Spots found clause');
+                    console.log('Harvesting Spots loaded from memory');
                     harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
 
                 }
                 else {
                 //HarvestingSpots list has not yet been created
 
-                    console.log('Creating harvestingSpots list');
+                    console.log('Creating harvestingSpots list for new source');
 
                     // Have each spawn find its own available harvesting spots
                     //harvestingSpots.push( source.registerHarvestingSpots( ) );
