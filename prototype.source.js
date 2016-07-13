@@ -74,7 +74,7 @@ module.exports = function() {
             // update the model in memory also
         Memory.colony.rooms[this.room.name].sources[this.id]
 
-        emptyRooms = { { x: 19, y: 45}, { x:20, y:45}, { x:21, y:45} };
+        emptyRooms = { harvestingSpots: { x: 19, y: 45}, { x:20, y:45}, { x:21, y:45} };
         return emptyRooms;
     };
     Source.prototype.getHarvestingSpots =
