@@ -57,15 +57,27 @@ module.exports = function() {
         // Safely check if source is already stored in memory, and dont recalculate the list if it is
         if (  Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
             sourceList = Memory.colony.rooms[name].sources;
+
+            //Now check if each source has the available spots in memory
+            var harvestingSpots = {};
+            for (let source in sourceList) {
+                if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') ) {
+                    harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
+                }
+                else {
+                    // Have each spawn find its own available harvesting spots
+                    harvestingSpots.push( source.registerHarvestingSpots() );
+                }
+
+            }
+
+
         }
         else {
 
             // Collect info on the source's available Harvesting spots and add it to the model
             for (let roomName in Game.rooms[name].find(FIND_SOURCES) ) {
-                sourceList[ sources[roomName].id ] = { harvestingSpots : [] };
-
-
-
+                sourceList[ sources[roomName].id ] = { };
             }
         }
 
