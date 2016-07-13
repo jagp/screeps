@@ -57,11 +57,11 @@ module.exports = function() {
 
         if ( Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty(rooms) != {} ) {
 
-            roomsList = Game.rooms;
+            roomsList = Memory.colony.rooms;
         }
         else {
         //form roomsList
-            Memory.colony.roooms = {};
+            Memory.colony.roooms = Game.rooms;
         }
         // Collect info on the room's sources
         var sourceList = {};
