@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 
 var ROLES = [ 'miner', 'harvester', 'upgrader', 'builder', 'repairer', 'rampartRepairer', 'wallRepairer', ];
 const HOME = 'W31S17';
@@ -57,10 +57,12 @@ console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
                             console.log('room was skipped - not added to candidateObjects');
                         }
                     });
-                                            if ( blocked == undefined ) {
-                            emptyRooms.push( { x: candidate.x, y: candidate.y } );
-                            console.log( 'blocked=' + blocked + ' so this point is being added to the list: ' + emptyRooms );
-                        }
+
+                    // We have cycled through all the objects in the room, and now whats left is safe for our harvesters
+                    if ( blocked == undefined ) {
+                        emptyRooms.push( { x: candidate.x, y: candidate.y } );
+                        console.log( 'blocked=' + blocked + ' so this point is being added to the list: ' + emptyRooms );
+                    }
 
                 }
 
@@ -74,19 +76,22 @@ console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
 
             // update the model in memory also
         //Memory.colony.rooms[this.room.name].sources[this.id]
-        console.log( emptyRooms );
+        //console.log( emptyRooms );
         //emptyRooms = [ { x: 19, y: 45}, { x:20, y:45}, { x:21, y:45} ];
         return emptyRooms;
     };
+
     Source.prototype.getHarvestingSpots =
         function() {
             if ( this.harvestingSpots != undefined && this.harvestingSpots != {} ) {
+                this.harvestingSpots = this.registerHarvestingSpots();
                 return this.harvestingSpots;
             }
             else {
-                return false;
+                return this.harvestingSpots;
             }
     };
+
     Source.prototype.setHarvestingSpots =
         function( harvestingSpots ) {
             this.harvestingSpots = harvestingSpots;
