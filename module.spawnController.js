@@ -182,7 +182,7 @@ module.exports = function(  ) {
             }
 
             // try to spawn one
-            name = Game.spawns.Spawn1.createCustomCreep(energyAvailable, 'courier', sourceId);
+            name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'courier', sourceId);
             role = 'courier';
 
             if ( ( ! name < 0) && DEBUG ) {
