@@ -136,7 +136,7 @@ module.exports = function(  ) {
         else if (numberOfRampartRepairers < minimumNumberOfRampartRepairers) {name = Game.spawns.Spawn1.createCustomCreep(energy, 'rampartRepairer'); role = 'rampartRepairer';}
         else if (numberOfWallRepairers < minimumNumberOfWallRepairers) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'wallRepairer'); role = 'wallRepairer';}
         else if (numberOfRepairers < minimumNumberOfRepairers) {  name = Game.spawns.Spawn1.createCustomCreep(energy, 'repairer'); role = 'repairer';}
-        else if (numberOfUpgraders < minimumNumberOfUpgraders) { console.log('Need to spawn more upgraders'); name = Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader'); role = 'upgrader';}
+        else if (numberOfUpgraders < minimumNumberOfUpgraders) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader'); role = 'upgrader';}
 
         /*-- Maximum Creep Spawn checks-- */
         else if (numberOfMiners < maximumNumberOfMiners) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'miner');  role = 'miner';}
