@@ -96,11 +96,10 @@ module.exports = function() {
 
 
                 //var room = Game.rooms[name];
-                //sourceList[source.id] = room.find(FIND_SOURCES);
-                //sourceList.push( [roomName].id ] )= { };
-                //
-                sourceList = { '576a9bde57110ab231d8818d' : {'harvestingSpots' : {} }, '576a9bde57110ab231d8818b': {'harvestingSpots' : {} } };
-
+                sourcesFound = room.find(FIND_SOURCES);
+                //for ( let source in sourcesFound )
+                //sourceList = { '576a9bde57110ab231d8818d' : {'harvestingSpots' : {} }, '576a9bde57110ab231d8818b': {'harvestingSpots' : {} } };
+                sourceList = sourcesFound;
         }
 
         //harvestingSpots should be an array of open square ids
