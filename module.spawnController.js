@@ -92,7 +92,7 @@ module.exports = function(  ) {
     var role = undefined;
 
     if ( Game.spawns.Spawn1.canCreateCreep( [WORK, WORK, WORK, WORK, WORK, WORK, WORK] ) == OK ) {
-        console.log('Inside spawnController main loop; energy=' + energy);
+        //console.log('Inside spawnController main loop; energy=' + energy);
 
         if (numberOfMiners < minimumNumberOfMiners) {  name = Game.spawns.Spawn1.createCustomCreep(energy, 'fullTimeMiner'); role = 'miner'; }
         else if (numberOfDefenders < minimumNumberOfDefenders && numberOfDefenders < maximumNumberOfDefenders) {name = Game.spawns.Spawn1.createCustomCreep(energy, 'defender'); role = 'defender';}
