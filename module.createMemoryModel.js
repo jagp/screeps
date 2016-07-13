@@ -63,7 +63,7 @@ module.exports = function() {
 
         for (let name in Game.rooms) {
             var room = Game.rooms[name];
-            Memory.colony.rooms[name] = { zzz: {} } ;
+            Memory.colony.rooms[name] = { } ;
 
 
             // Collect info on the room's sources
@@ -99,18 +99,12 @@ module.exports = function() {
 
                 sourceList[sourceId].harvestingSpots = harvestingSpots;
 
-                //sourceList = { '576a9bde57110ab231d8818d' : 'harvestingSpots', '576a9bde57110ab231d8818b': 'harvestingSpots'  };
             }
-
-
-            //harvestingSpots should be an array of open square ids
 
             Memory.colony.rooms[name] = {
                 energyAvailable : Game.rooms[name].energyAvailable,
                 sources : sourceList
             };
-            //console.log('Rooms list: ' + roomsList);
-
 
         }
     }
