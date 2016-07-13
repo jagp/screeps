@@ -6,10 +6,10 @@ const SOURCEONE = '576a9bde57110ab231d8818b';
 
 module.exports = function() {
 
-    Source.prototype.test = 'yep!';
+    Source.prototype.minerName = undefined;
 
     //array of pos of open harvesting spots
-    Source.prototype.harvestingSpots = [ '577ff859a2be76ed7c3f405d' ];
+    Source.prototype.harvestingSpots = {};
 
     // Give sources the ability to provide info about where they can be harvested from
     Source.prototype.registerHarvestingSpots =
