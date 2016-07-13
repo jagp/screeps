@@ -102,6 +102,7 @@ module.exports = function() {
                 return err;
             }
             else {
+                console.log( 'inside no-source clause');
                 return this.createCreep(body, undefined, { role: roleName, working: false });
             }
     };
