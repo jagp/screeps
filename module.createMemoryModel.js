@@ -97,9 +97,9 @@ module.exports = function() {
 
                 //var room = Game.rooms[name];
                 sourcesFound = room.find(FIND_SOURCES);
-                //for ( let source in sourcesFound )
+                sourcesFound.foreach( function(source) { sourceList[source] = {  } }
                 //sourceList = { '576a9bde57110ab231d8818d' : {'harvestingSpots' : {} }, '576a9bde57110ab231d8818b': {'harvestingSpots' : {} } };
-                sourceList = sourcesFound;
+                s//ourceList = sourcesFound;
         }
 
         //harvestingSpots should be an array of open square ids
