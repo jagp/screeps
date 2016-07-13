@@ -54,7 +54,7 @@ module.exports = function() {
             else if ( bodyTypeName == 'upgrader' ) {
 
                 //Upgraders:
-                console.log( 'inside body part constuctor');
+                console.log( 'inside body part constuctor, energy =' + energy);
                 roleName = 'upgrader';
                 var numberOfParts = Math.floor(energy / 150);
                 for (let i = 0; i < numberOfParts; i++) {
@@ -97,9 +97,9 @@ module.exports = function() {
 
             // create creep with the created body and the given role
             if ( source ) {
-                console.log( 'inside ource clause');
+                console.log( 'inside source clause');
                 var err = this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
-                if ( err < 0 && err != ERR_NOT_ENOUGH_ENERGY) { console.log( 'Creep-building filure in prototype.spawn: ' + err); }
+                if ( err < 0 && err != zERR_NOT_ENOUGH_ENERGY) { console.log( 'Creep-building filure in prototype.spawn: ' + err); }
                 return err;
             }
             else {
