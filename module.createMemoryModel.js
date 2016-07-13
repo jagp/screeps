@@ -74,7 +74,7 @@ module.exports = function() {
                 var sourcesFound = room.find(FIND_SOURCES);
                 sourcesFound.forEach(
                     function(source) {
-                        Memory.colony.rooms[ source.id ] = { };
+                        Memory.colony.rooms[name].sources[source.id ] = { };
                     }
                 );
             }
