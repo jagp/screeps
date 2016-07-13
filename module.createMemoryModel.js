@@ -49,16 +49,24 @@ module.exports = function() {
 
     /* -------------------- ROOMS ---------------------- */
     /* Collect info on the rooms */
-    var roomList = { };
+    var roomsList = { };
 
     //Form roomList
     for (let name in Game.rooms) {
         var room = Game.rooms[name];
 
+        if ( Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty(rooms) != {} ) {
+
+            roomsList = Memory.colony.rooms;
+        }
+        else {
+        //form roomsList
+            var roomsFound = Game.rooms;
+        }
         // Collect info on the room's sources
         var sourceList = {};
         // Safely check if source list is already stored in memory, and dont recalculate the list if it is
-        if ( Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
+        if ( false && Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
             sourceList = Memory.colony.rooms[name].sources;
         }
         else {
