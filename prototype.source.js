@@ -6,7 +6,7 @@ const SOURCEONE = '576a9bde57110ab231d8818b';
 
 module.exports = function() {
 
-    Source.prototype.minerName = '';
+    Source.prototype.minerName = '';//
 
     Source.prototype.setMinerName = function( name ) { this.minerName = name; }
     Source.prototype.getMinerName = function() { return this.minerName; }
@@ -33,15 +33,14 @@ module.exports = function() {
             const MAP_GENERATED_OBJECT_OBSTACLE_TYPES =  [ {"terrain" : "wall"}, { "structure" : "source" } ]
             var blockingTypes = MAP_GENERATED_OBJECT_OBSTACLE_TYPES;
 
-            if (DEBUG) { console.log( 'Beginning coords loop' ); }
+
             for ( var xMod = -1; xMod <= 1; xMod++) {
 
                 candidate.x = origin.x + xMod;
-                if (DEBUG) { console.log( 'In coords loop at x' ); }
+
                 for ( var yMod = -1; yMod <= 1; yMod++) {
 
                     candidate.y = origin.y + yMod;
-                    if (DEBUG) { console.log( 'In coords loop at y' ); }
 
                     //Store the list of objects in the candidate
                     candidateObjects = Game.rooms[this.room.name].lookAt(candidate.x, candidate.y);
@@ -54,11 +53,8 @@ console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
                         if ( (obj.type == 'terrain' && obj.terrain == 'wall' )
                             || (obj.type == 'source') ) {
                             blocked = true;
-                            //console.log( 'not adding ^ this coord to the list.' );
                         }
-                        else {
-                            console.log('room was skipped - not added to candidateObjects');
-                        }
+
                     });
 
                     // We have cycled through all the objects in the room, and now whats left is safe for our harvesters
@@ -71,16 +67,6 @@ console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
 
             }
 
-            // see if the room contains a blocking structure
-
-            // if so, strip it from the list
-
-            // assign the list to the internal property
-
-            // update the model in memory also
-        //Memory.colony.rooms[this.room.name].sources[this.id]
-        //console.log( emptyRooms );
-        //emptyRooms = [ { x: 19, y: 45}, { x:20, y:45}, { x:21, y:45} ];
         return emptyRooms;
     };
 
