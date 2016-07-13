@@ -93,9 +93,11 @@ module.exports = function() {
             // Collect info on the source's available Harvesting spots and add it to the model
 
 
-                var room = Game.rooms[name];
-                sourceList = room.find(FIND_SOURCES);
+                //var room = Game.rooms[name];
+                //sourceList[source.id] = room.find(FIND_SOURCES);
                 //sourceList.push( [roomName].id ] )= { };
+                //
+                sourceList = { 576a9bde57110ab231d8818d : 'harvestingSpots', 576a9bde57110ab231d8818b: 'harvestingSpots'  };
 
         }
 
