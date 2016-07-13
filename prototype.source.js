@@ -58,7 +58,6 @@ module.exports = function() {
                     // We have cycled through all the objects in the room, and now whats left is safe for our harvesters
                     if ( blocked == undefined ) {
                         emptyRooms.push( { x: candidate.x, y: candidate.y } );
-                        console.log( 'blocked=' + blocked + ' so this point is being added to the list: ' + emptyRooms );
                     }
 
                 }
