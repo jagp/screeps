@@ -51,12 +51,24 @@ module.exports = function() {
     /* Collect info on the rooms */
 
     var roomsList = { };
-    if (true || Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty('rooms') != {} ) {
+    if (false && Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty('rooms') != {} ) {
     //if roomsList is in memory, use it
         //roomsList = Memory.colony.rooms;
         //roomsList = Memory.colony.rooms;
         //roomsList = Game.rooms; //{ 'W31S17' : {} }
     }
+    else {
+
+        for (let name in Game.rooms) {
+            var room = Game.rooms[name];
+            roomsList = { name : {} } ;
+
+            };
+        }
+
+    }
+
+    /*
     else {
     // otherwise, form roomsList
 
@@ -110,6 +122,7 @@ module.exports = function() {
         }
 
     } //roomsList is now formed
+    */
     Memory.colony.rooms = roomsList;
 
 
