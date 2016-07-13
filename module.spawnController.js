@@ -40,7 +40,7 @@ if ( Memory.colony.condition === 'invasion' ) {
     console.log( 'Invasion? ' + Memory.colony.condition  )
     //console.log('Invasion Detected');
 
-    DEFAULT_SPAWN_ROLE = 'upgrader';
+    DEFAULT_SPAWN_ROLE = 'defender';
     AUTOSPAWN_AT_ENERGY = Game.spawns.Spawn1.room.energyCapacityAvailable * .5;
 
     minimumNumberOfDefenders = 3;
@@ -142,7 +142,7 @@ module.exports = function(  ) {
         else if (numberOfMiners < maximumNumberOfMiners) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'miner');  role = 'miner';}
         else if (numberOfBuilders < maximumNumberOfBuilders) {  name = Game.spawns.Spawn1.createCustomCreep(energy, 'builder');  role = 'builder';}
         else if (numberOfRampartRepairers < maximumNumberOfRampartRepairers) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'rampartRepairer'); role='rampartRepairer'; }
-        else if (numberOfUpgraders < maximumNumberOfUpgraders) {  console.log('Error in module.spawnController upgraders max count check'); name = Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader');  role = 'upgrader'; }
+        else if (numberOfUpgraders < maximumNumberOfUpgraders) {  name = Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader');  role = 'upgrader'; }
         else if (numberOfWallRepairers < maximumNumberOfWallRepairers) {  name = Game.spawns.Spawn1.createCustomCreep(energy, 'wallRepairer');  role = 'wallRepairer';}
         else if (numberOfRepairers < maximumNumberOfRepairers) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'repairer'); role='repairer'; }
         else if (numberOfHarvesters < maximumNumberOfHarvesters) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'harvester'); role = 'harvester'; }
