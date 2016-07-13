@@ -53,7 +53,8 @@ module.exports = function() {
     var roomsList = { };
     if ( false && Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty('rooms') != {} ) {
     //if roomsList is in memory, use it
-        roomsList = Memory.colony.rooms;
+        //roomsList = Memory.colony.rooms;
+        roomsList = { 'W31S17' : {} }
     }
     else {
     // otherwise, form roomsList
