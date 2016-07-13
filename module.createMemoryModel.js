@@ -98,7 +98,7 @@ module.exports = function() {
                 var room = Game.rooms[name];
                 var sourcesFound = room.find(FIND_SOURCES);
                 console.log( typeof(sourcesFound));
-                sourcesFound.foreach( function(source) { sourceList[source] = {  } } );
+                sourcesFound.forEach( function(source) { sourceList[source] = {  } } );
                 //sourceList = { '576a9bde57110ab231d8818d' : {'harvestingSpots' : {} }, '576a9bde57110ab231d8818b': {'harvestingSpots' : {} } };
                 sourceList = sourcesFound;
         }
