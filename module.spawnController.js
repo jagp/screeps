@@ -142,7 +142,7 @@ module.exports = function(  ) {
         else if (numberOfMiners < maximumNumberOfMiners) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'miner');  role = 'miner';}
         else if (numberOfBuilders < maximumNumberOfBuilders) {  name = Game.spawns.Spawn1.createCustomCreep(energy, 'builder');  role = 'builder';}
         else if (numberOfRampartRepairers < maximumNumberOfRampartRepairers) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'rampartRepairer'); role='rampartRepairer'; }
-        else if (numberOfUpgraders < maximumNumberOfUpgraders) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader');  role = 'upgrader'; }
+        else if (numberOfUpgraders < maximumNumberOfUpgraders) { console.log('In upgraders test in spawnController.'); name = Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader');  role = 'upgrader'; }
         else if (numberOfWallRepairers < maximumNumberOfWallRepairers) {  name = Game.spawns.Spawn1.createCustomCreep(energy, 'wallRepairer');  role = 'wallRepairer';}
         else if (numberOfRepairers < maximumNumberOfRepairers) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'repairer'); role='repairer'; }
         else if (numberOfHarvesters < maximumNumberOfHarvesters) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'harvester'); role = 'harvester'; }
