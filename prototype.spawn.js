@@ -101,7 +101,7 @@ module.exports = function() {
             // create creep with the created body and the given role
             if ( source ) {
                 var createCreepResponse = this.createCreep(body, undefined, { role: roleName, working: false, targetSource: source });
-                if ( createCreepResponse < 0) { console.log( 'Creep-building failure in prototype.spawn, error: ' + createCreepResponse + ' role:' + roleName + ' targetSource=' + source  ); }
+                if ( createCreepResponse < 0 && createCreepResponse != ERR_NOT_ENOUGH_ENERGY) { console.log( 'Creep-building failure in prototype.spawn, error: ' + createCreepResponse + ' role:' + roleName + ' targetSource=' + source  ); }
                 return createCreepResponse;
             }
             else {
