@@ -66,7 +66,7 @@ module.exports = function() {
         // Collect info on the room's sources
         var sourceList = {};
         // Safely check if source list is already stored in memory, and dont recalculate the list if it is
-        if ( false && Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
+        if ( Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
             sourceList = Memory.colony.rooms[name].sources;
         }
         else {
