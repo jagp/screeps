@@ -49,14 +49,14 @@ module.exports = function() {
 //structure=source returns undefined
 console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
                         if ( (obj.type == 'terrain' && obj.terrain == 'wall' )
-                            || (obj.type == 'structure' && obj.structure == 'source') ) {
+                            || (obj.type == 'source') ) {
                             blocked = true;
                             console.log( 'not adding ^ this coord to the list.' );
                         }
                         else if ( blocked == undefined ) {
 
                             emptyRooms.push( { x: candidate.x, y: candidate.y } );
-                            console.log( 'blocked=' + blocked + ' so this point is being added to the list: ' );
+                            console.log( 'blocked=' + blocked + ' so this point is being added to the list: ' emptyRooms );
                             //var sourceId = Memory.colony.rooms[HOME].sources[SOURCEONE];
                             //var sourceId = SOURCEONE;
                             //console.log(sourceId);
