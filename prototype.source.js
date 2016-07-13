@@ -56,11 +56,11 @@ console.log( obj.type + ' ' + obj.terrain + ' ' + obj.structure );
                         else {
                             console.log('room was skipped - not added to candidateObjects');
                         }
-                        if ( blocked == undefined ) {
+                    });
+                                            if ( blocked == undefined ) {
                             emptyRooms.push( { x: candidate.x, y: candidate.y } );
                             console.log( 'blocked=' + blocked + ' so this point is being added to the list: ' + emptyRooms );
                         }
-                    });
 
                 }
 
