@@ -56,15 +56,16 @@ module.exports = function() {
 
         // Safely check if source is already stored in memory, and dont recalculate the list if it is
         if (  Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
-            //console.log ( 'using sourceList from memory for MemoryModel');
             sourceList = Memory.colony.rooms[name].sources;
         }
         else {
 
-            // Collect info on the source's available Harvesting spots
+            // Collect info on the source's available Harvesting spots and add it to the model
             for (let roomName in Game.rooms[name].find(FIND_SOURCES) ) {
-
                 sourceList[ sources[roomName].id ] = { harvestingSpots : [] };
+
+
+
             }
         }
 
@@ -73,8 +74,10 @@ module.exports = function() {
         var spotsList = {};
 
 
-
-        roomList[name] = { sources : sourceList };
+        roomList[name] = {
+            energyAvailable = Game.rooms[name].energyAvailable,
+            sources : sourceList
+        };
 
     }
     Memory.colony.rooms = roomList;
