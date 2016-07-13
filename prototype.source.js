@@ -6,7 +6,7 @@ const SOURCEONE = '576a9bde57110ab231d8818b';
 
 module.exports = function() {
 
-    Source.prototype.minerName = undefined;
+    Source.prototype.minerName = '';
 
     //array of pos of open harvesting spots
     Source.prototype.harvestingSpots = {};
