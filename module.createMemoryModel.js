@@ -61,7 +61,7 @@ module.exports = function() {
             sourceList = Memory.colony.rooms[name].sources;
 
             //Now check if each source has the available spots in memory
-            var harvestingSpots = {};
+            var harvestingSpots = [];
             for (let source in sourceList) {
                 //console.log('test');
                 //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
@@ -92,11 +92,14 @@ module.exports = function() {
 
             // Collect info on the source's available Harvesting spots and add it to the model
 
-                var room = Game.rooms[name];
+                roomList[name].sources = { 'yes!' };
+                //var room = Game.rooms[name];
+                /*
                 for ( let source in room.find(FIND_SOURCES) ) {
-                    sourceList[id] =  source.id;
+                    sourceList[source.id];
 
                 };
+                */
                 //sourceList.push( [roomName].id ] )= { };
 
         }
