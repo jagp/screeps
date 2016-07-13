@@ -74,8 +74,8 @@ module.exports = function() {
 
             //console.log('test');
             //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
-            if (  Memory.colony.rooms[name].sources[source].hasOwnProperty('harvestingSpots') && Memory.colony.rooms[name].sources[source].harvestingSpots.length != 0 ) {
-                harvestingSpots = Memory.colony.rooms[name].sources[source].harvestingSpots;
+            if (  source.hasOwnProperty('harvestingSpots') && source.harvestingSpots.length != 0 ) {
+                harvestingSpots = source.harvestingSpots;
             }
             else {
             //Form harvestingSpots list
