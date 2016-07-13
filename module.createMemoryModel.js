@@ -54,7 +54,7 @@ module.exports = function() {
     for (let name in Game.rooms) {
 
         // Collect info on the room's sources
-        var sourceList = {};
+        var sourceList = [];
 
         // Safely check if source is already stored in memory, and dont recalculate the list if it is
         if (  Memory.colony.rooms[name].hasOwnProperty('sources') && Memory.colony.rooms[name].sources != [] ) {
