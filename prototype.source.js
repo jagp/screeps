@@ -46,19 +46,21 @@ module.exports = function() {
 
                     candidateObjects.forEach( function( obj ) {
                         if ( DEBUG ) { console.log( 'At : [' + candidate.x + ', ' + candidate.y + '] is a: ' + Object.getPrototypeOf( obj) ); }
+                        var blocked = undefined;
 
                         if ( (obj.type == 'terrain' && obj.terrain == 'wall' )
                             || (obj.type == 'structure' && obj.structure == 'source') ) {
-
-
+                            blocked = true;
                         }
-                        else {
+                        else if ( blocked == undefined ) {
                             //if no objects matched blockingTypes
                             emptyRooms.push( { x: candidate.x, y: candidate.y } );
                             //var sourceId = Memory.colony.rooms[HOME].sources[SOURCEONE];
                             var sourceId = SOURCEONE;
                             //console.log(sourceId);
-                            Game.getObjectById( sourceId).addHarvestingSpot( 'test' );
+                        }
+                        else {
+                            console.log('room was skipped - not added to candidateObjects');
                         }
 
                     });
