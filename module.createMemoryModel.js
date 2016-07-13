@@ -51,7 +51,7 @@ module.exports = function() {
     /* Collect info on the rooms */
     var roomsList = { };
 
-    //Form roomList
+    //Form roomsList
     for (let name in Game.rooms) {
         var room = Game.rooms[name];
 
@@ -105,13 +105,13 @@ module.exports = function() {
 
         //harvestingSpots should be an array of open square ids
 
-        roomList[name] = {
+        roomsList[name] = {
             energyAvailable : Game.rooms[name].energyAvailable,
             sources : sourceList
         };
 
     }
-    Memory.colony.rooms = roomList;
+    Memory.colony.rooms = roomsList;
 
 
     /* -------------------- CONDITIONS ---------------------- */
