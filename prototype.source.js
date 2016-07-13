@@ -8,6 +8,9 @@ module.exports = function() {
 
     Source.prototype.minerName = '';
 
+    Source.prototype.setMinerName = function( name ) { this.minerName = name; }
+    Source.prototype.getMinerName = function() { return this.minerName; }
+
     //array of pos of open harvesting spots
     Source.prototype.harvestingSpots = {};
 

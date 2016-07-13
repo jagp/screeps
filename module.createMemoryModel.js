@@ -51,10 +51,10 @@ module.exports = function() {
     /* Collect info on the rooms */
 
     var roomsList = { };
-    if ( false && Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty('rooms') != {} ) {
+    if (Memory.colony.hasOwnProperty('rooms') && Memory.colony.hasOwnProperty('rooms') != {} ) {
     //if roomsList is in memory, use it
         //roomsList = Memory.colony.rooms;
-        roomsList = { 'W31S17' : {} }
+        roomsList = Memory.colony.rooms;
     }
     else {
     // otherwise, form roomsList
@@ -80,19 +80,16 @@ module.exports = function() {
                 //console.log(sourceId);
                 var source = Game.getObjectById( sourceId );
 
-                //console.log('test');
-                //console.log(Object.getOwnPropertyNames( Memory.colony.rooms[name].sources[source].harvestingSpots ));
+                //get harvestingSpots
                 if (  source.hasOwnProperty('harvestingSpots') && source.harvestingSpots.length != 0 ) {
+                    //from memory
                     harvestingSpots = source.harvestingSpots;
                 }
                 else {
-                //Form harvestingSpots list
-                    //console.log('Creating harvestingSpots list for new source');
+                    //or, form harvestingSpots list
 
                     // Have each spawn find its own available harvesting spots
-                    //harvestingSpots.push( source.registerHarvestingSpots( ) );
                     sourceObj = Game.getObjectById( sourceId );
-                    //console.log( sourceObj.registerHarvestingSpots() );
                     harvestingSpots = sourceObj.getHarvestingSpots();
                 }
 
