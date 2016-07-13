@@ -65,6 +65,7 @@ module.exports = function() {
                     body.push(MOVE); // 50
 
                 }
+                body = [ WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE ];
 
             }
             else if ( bodyTypeName == 'courier' ) {
