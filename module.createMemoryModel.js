@@ -82,7 +82,7 @@ module.exports = function() {
                     harvestingSpot = sourceObj.registerHarvestingSpots();
                 }
 
-                sourceList[source].harvestingSpot = harvestingSpot;
+                sourceList[source].harvestingSpots = harvestingSpots;
 
 
 
