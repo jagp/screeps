@@ -75,7 +75,7 @@ module.exports = function() {
 
 
         roomList[name] = {
-            energyAvailable = Game.rooms[name].energyAvailable,
+            energyAvailable : Game.rooms[name].energyAvailable,
             sources : sourceList
         };
 
