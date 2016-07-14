@@ -56,9 +56,9 @@ module.exports = function() {
             else {
                 // 3rd priority: Attempt to repair anything (except walls) below TOWER_REPAIR_PERCENT hp (default 3%)
                 var damagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-                    filter: (s) => (s.structureType != STRUCTURE_WALL)
-                                    && ((s.hits < (s.hitsMax * TOWER_REPAIR_PERCENT)
-                                        || (s.structureType == STRUCTURE_RAMPART && (s.hits < s.hitsMax * TOWER_RAMPART_REPAIR_PERCENT ) ) )
+                    filter: (s) =>
+                            (s.structureType != ( STRUCTURE_WALL) && (s.hits < (s.hitsMax * TOWER_REPAIR_PERCENT) )
+                                             || ( s.structureType == STRUCTURE_RAMPART && (s.hits < s.hitsMax * TOWER_RAMPART_REPAIR_PERCENT ) ) )
 
                 });
                 if (damagedStructure != undefined) {
