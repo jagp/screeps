@@ -40,7 +40,6 @@ if ( Memory.colony.condition === 'invasion' ) {
     console.log( 'Invasion? ' + Memory.colony.condition  )
     //console.log('Invasion Detected');
 
-    DEFAULT_SPAWN_ROLE = 'defender';
     AUTOSPAWN_AT_ENERGY = Game.spawns.Spawn1.room.energyCapacityAvailable * .5;
 
     minimumNumberOfDefenders = 3;
