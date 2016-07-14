@@ -8,6 +8,7 @@
  */
 var DEBUG = false;
 var TOWER_REPAIR_PERCENT = .03;
+var TOWER_RAMPART_REPAIR_PERCENT = .005;
 
 module.exports = function() {
 
@@ -15,43 +16,60 @@ module.exports = function() {
     var towers = Game.rooms.W31S17.find(FIND_STRUCTURES, {
         filter: (s) => s.structureType == STRUCTURE_TOWER
     });
-    if ( Game.spawns.Spawn1.room.energyAvailable > Game.spawns.Spawn1.room.energyCapacityAvailable * .5)  {
-        for (let tower of towers) {
 
-            var target = undefined;
+    for (let tower of towers) {
 
-            // Determine if there are hostile targets in range of the tower's pos
-            if ( Memory.colony.condition == 'invasion' ) {
-                target = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS, { filter: (c) => c.hits < c.hitsMax })
-            }
+        var target = undefined;
+
+        // Determine if there are hostile targets in range of the tower's pos
+        if ( Memory.colony.condition == 'invasion' ) {
+
+            target = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS, { filter: (c) => c.hits < c.hitsMax })
 
             if (target != undefined) {
                 //1st priority: If we found a hostile target, attack it
                 tower.attack(target);
                 if ( DEBUG ) { console.log('Tower is attacking.'); }
             }
-            else {
-                // 2nd priority: Attempt to heal narby creeps
-                var damagedCreep = tower.pos.findClosestByRange(FIND_MY_CREEPS,
-                    { filter: (c) => c.hits < c.hitsMax }
-                );
-                if (damagedCreep != undefined) {
-                    var err = tower.heal(damagedCreep);
-                    if ( DEBUG ) { console.log('Tower is healing: ' + damagedCreep + ' with status: ' + err); Game.notify( 'Tower is healing.'); }
-                }
-                else {
-                    // 3rd priority: Attempt to repair anything (except walls) below OWER_REPAIR_PERCENT hp (default 3%)
-                    var damagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-                        filter: (s) => (s.hits < (s.hitsMax * TOWER_REPAIR_PERCENT) ) && (s.structureType != STRUCTURE_WALL)
-                    });
-                    if (damagedStructure != undefined) {
-                        var err = tower.repair(damagedStructure);
-                        if ( DEBUG ) { console.log('Tower is repairing with status: ' + err); }
-                    }
 
+            // 2nd priority: Attempt to heal narby creeps
+            var damagedCreep = tower.pos.findClosestByRange(FIND_MY_CREEPS,
+                { filter: (c) => c.hits < c.hitsMax }
+            );
+            if (damagedCreep != undefined) {
+                var err = tower.heal(damagedCreep);
+                if ( DEBUG ) { console.log('Tower is healing: ' + damagedCreep + ' with status: ' + err); Game.notify( 'Tower is healing.'); }
+            }
+
+        }
+
+        else if ( tower.room.energyAvailable > tower.room.energyCapacityAvailable * .75 ) {
+            // Only perform these actions when the room has a high energy level
+
+            var damagedCreep = tower.pos.findClosestByRange(FIND_MY_CREEPS,
+                { filter: (c) => c.hits < c.hitsMax }
+            );
+            if (damagedCreep != undefined) {
+                var err = tower.heal(damagedCreep);
+                if ( DEBUG ) { console.log('Tower is healing: ' + damagedCreep + ' with status: ' + err); Game.notify( 'Tower is healing.'); }
+            }
+            else {
+                // 3rd priority: Attempt to repair anything (except walls) below TOWER_REPAIR_PERCENT hp (default 3%)
+                var damagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+                    filter: (s) => (s.structureType != STRUCTURE_WALL)
+                                    && ((s.hits < (s.hitsMax * TOWER_REPAIR_PERCENT) )
+                                        || (s.structureType == STRUCTURE_RAMPART && (s.hits < s.hitsMax * TOWER_RAMPART_REPAIR_PERCENT ) )
+
+                });
+                if (damagedStructure != undefined) {
+                    var err = tower.repair(damagedStructure);
+                    if ( DEBUG ) { console.log('Tower is repairing with status: ' + err); }
                 }
+
             }
         }
-    }
+
+    } /* for Towers loop */
+
 
 };
