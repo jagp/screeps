@@ -10,7 +10,7 @@ const SOURCEONE = '576a9bde57110ab231d8818b';
 var SOURCE_HARVESTER_RATIO = { HOME: .5 }
 
 // Spawning settings
-var AUTOSPAWN_AT_ENERGY = Math.ceil( Game.spawns.Spawn1.room.energyCapacityAvailable, 700);
+var AUTOSPAWN_AT_ENERGY = Math.ceil( 700);
 var DEFAULT_SPAWN_ROLE = 'upgrader';
 //var spawnEnergy = 500;
 
