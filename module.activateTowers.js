@@ -56,7 +56,7 @@ module.exports = function() {
                 if ( DEBUG ) { console.log('Tower is healing: ' + damagedCreep + ' with status: ' + err); Game.notify( 'Tower is healing.'); }
             }
             else {
-                console.log('Inside Tower activation energy threshold condition');
+                //console.log('Inside Tower activation energy threshold condition');
                 // 3rd priority: Attempt to repair anything (except walls) below TOWER_REPAIR_PERCENT hp (default 3%)
                 var damagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (s) =>
