@@ -10,7 +10,7 @@ const SOURCEONE = '576a9bde57110ab231d8818b';
 var SOURCE_HARVESTER_RATIO = { HOME: .5 }
 
 // Spawning settings
-var AUTOSPAWN_AT_ENERGY = Math.ceil( Game.spawns.Spawn1.room.energyCapacityAvailable * .66 );
+var AUTOSPAWN_AT_ENERGY = Math.ceil( Game.spawns.Spawn1.room.energyCapacityAvailable * .75 );
 var DEFAULT_SPAWN_ROLE = 'upgrader';
 //var spawnEnergy = 500;
 
@@ -137,7 +137,7 @@ module.exports = function(  ) {
         else if (numberOfRampartRepairers < minimumNumberOfRampartRepairers) {name = Game.spawns.Spawn1.createCustomCreep(energy, 'rampartRepairer'); role = 'rampartRepairer';}
         else if (numberOfWallRepairers < minimumNumberOfWallRepairers) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'wallRepairer'); role = 'wallRepairer';}
         else if (numberOfRepairers < minimumNumberOfRepairers) {  name = Game.spawns.Spawn1.createCustomCreep(energy, 'repairer'); role = 'repairer';}
-        else if (numberOfUpgraders < minimumNumberOfUpgraders) { console.log('in upgraders min count check in cpontroller '); name = Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader'); role = 'upgrader';}
+        else if (numberOfUpgraders < minimumNumberOfUpgraders) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'upgrader'); role = 'upgrader';}
 
         /*-- Maximum Creep Spawn checks-- */
         else if (numberOfMiners < maximumNumberOfMiners) { name = Game.spawns.Spawn1.createCustomCreep(energy, 'miner');  role = 'miner';}
