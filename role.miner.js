@@ -8,9 +8,10 @@ module.exports = {
             //console.log( "Transferring energy with response: " + creep.transfer( Game.getObjectById('5781e7b07cc9b30b2f70836c'), RESOURCE_ENERGY) );
             creep.transfer( Game.getObjectById('5781e7b07cc9b30b2f70836c'), RESOURCE_ENERGY);
             //creep.transfer( Game.getObjectById('5782b8f5b692eba23515cc40'), RESOURCE_ENERGY);
-            creep.transfer( Game.getObjectById('5785fc2d7f3097507366979b'), RESOURCE_ENERGY);
-            creep.transfer( Game.getObjectById('5785f7f8fad8f4b36536acf7'), RESOURCE_ENERGY);
-            creep.transfer( Game.getObjectById('5785cb205512557f2dba6917'), RESOURCE_ENERGY);
+            creep.transfer( Game.getObjectById('578dc89b8c5d25786db757fb'), RESOURCE_ENERGY);
+            creep.transfer( Game.getObjectById('578db23b861b9ced447467a6'), RESOURCE_ENERGY);
+            creep.transfer( Game.getObjectById('578c22904b106ddd17e486a3'), RESOURCE_ENERGY);
+            creep.transfer( Game.getObjectById('578d9af718c6ed8256d0d84e'), RESOURCE_ENERGY);
 
 
             var targetPos = undefined;

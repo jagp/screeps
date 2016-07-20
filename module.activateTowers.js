@@ -9,6 +9,7 @@
 var DEBUG = false;
 var TOWER_REPAIR_PERCENT = .03;
 var TOWER_RAMPART_REPAIR_PERCENT = .005;
+var TOWER_ROAD_REPAIR_PERCENT = .25;
 
 module.exports = function() {
 
@@ -43,7 +44,8 @@ module.exports = function() {
 
         }
 
-        else if ( tower.room.energyAvailable > tower.room.energyCapacityAvailable * .75 ) {
+        else if ( tower.room.energyAvailable > 0 ) {
+
             // Only perform these actions when the room has a high energy level
 
             var damagedCreep = tower.pos.findClosestByRange(FIND_MY_CREEPS,
@@ -54,11 +56,13 @@ module.exports = function() {
                 if ( DEBUG ) { console.log('Tower is healing: ' + damagedCreep + ' with status: ' + err); Game.notify( 'Tower is healing.'); }
             }
             else {
+                console.log('Inside Tower activation energy threshold condition');
                 // 3rd priority: Attempt to repair anything (except walls) below TOWER_REPAIR_PERCENT hp (default 3%)
                 var damagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
                     filter: (s) =>
-                            (s.structureType != ( STRUCTURE_WALL) && (s.hits < (s.hitsMax * TOWER_REPAIR_PERCENT) )
-                                             || ( s.structureType == STRUCTURE_RAMPART && (s.hits < s.hitsMax * TOWER_RAMPART_REPAIR_PERCENT ) ) )
+                            (s.structureType != ( STRUCTURE_WALL) && (s.hits < (s.hitsMax * TOWER_REPAIR_PERCENT) ) )
+                        ||  (s.structureType == STRUCTURE_ROAD && (s.hits < s.hitsMax * TOWER_ROAD_REPAIR_PERCENT ) )
+                        ||  (s.structureType == STRUCTURE_RAMPART && (s.hits < s.hitsMax * TOWER_RAMPART_REPAIR_PERCENT ) )
 
                 });
                 if (damagedStructure != undefined) {

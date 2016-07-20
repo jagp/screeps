@@ -72,7 +72,8 @@ module.exports = function() {
             else if ( bodyTypeName == 'courier' ) {
 
                 roleName = 'courier';
-                var numberOfParts = Math.floor(energy / 100);
+                //var numberOfParts = Math.floor(energy / 100);
+                var numberOfParts = Math.floor( ( energy * .5 ) / 100);
                 for (let i = 0; i < numberOfParts; i++) {
 
                     body.push(CARRY); // 50
