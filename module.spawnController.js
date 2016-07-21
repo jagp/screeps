@@ -158,7 +158,7 @@ module.exports = function(  ) {
             name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'harvester');
             role = 'havester';
         }
-        else if ( numberOfMiners == 0 ) {  name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'partTimeMiner'); role = 'Part-time Miner'; }
+        else if ( numberOfMiners < maximumNumberOfMiners ) {  name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'partTimeMiner'); role = 'Part-time Miner'; }
         else if ( numberOfCouriers == 0 ) {
             //console.log( 'trying to spawn at the could not produce 700 energy creep brance');
             //name = Game.spawns.Spawn1.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'courier'); role = 'courier';
