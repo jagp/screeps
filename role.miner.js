@@ -11,7 +11,7 @@ module.exports = {
             creep.transfer( Game.getObjectById('578dc89b8c5d25786db757fb'), RESOURCE_ENERGY);
             creep.transfer( Game.getObjectById('578db23b861b9ced447467a6'), RESOURCE_ENERGY);
             creep.transfer( Game.getObjectById('578c22904b106ddd17e486a3'), RESOURCE_ENERGY);
-            creep.transfer( Game.getObjectById('578d9af718c6ed8256d0d84e'), RESOURCE_ENERGY);
+            creep.transfer( Game.getObjectById('5790030657640e710c3a9396'), RESOURCE_ENERGY);
 
 
             var targetPos = undefined;
